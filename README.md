@@ -6,12 +6,13 @@ Python port of claude-mem's context block functions.
 
 - `manifest.json` — the claude-mem manifest, kept for reference.
 - `search_test.py` — a search test I wrote earlier.
+- `test_context_block.py` — tests for the port.
 
 ## Port
 
-The port lives in `/config/byron/projects/dev_tools/context_block.py`.
-It implements `find_context_block_range`, `strip_context_blocks`, and
-`inject_context_block`. The port passes its own tests and is verified
+The port lives in `context_block.py` in this directory.
+It implements `format_context_block` and `extract_context`.
+The port passes its own tests (`test_context_block.py`) and is verified
 against the original behaviour.
 
 ## Status
