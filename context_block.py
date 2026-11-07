@@ -10,7 +10,7 @@ def extract_context(block: str) -> str:
     """
     Extract content from a formatted context block.
     """
-    if not block.startswith("<context>") or not block.endswith("</context>"):
+    if not block.startswith("<memory>") or not block.endswith("</memory>"):
         return ""
-    content = block[len("<context>"):-len("</context>")].strip()
+    content = block[len("<memory>"):-len("</memory>")].strip()
     return content
