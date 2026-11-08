@@ -15,6 +15,8 @@ def handle_request(request: dict) -> dict:
         result = format_context_block(params.get("text", ""))
     elif method == "extract_context":
         result = extract_context(params.get("block", ""))
+    elif method == "health_check":
+        result = {"status": "ok", "version": "0.1.0"}
     else:
         return {"id": req_id, "error": {"code": -32601, "message": f"Unknown method: {method}"}}
 
