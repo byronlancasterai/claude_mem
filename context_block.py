@@ -24,3 +24,19 @@ def summarise_memories(memories: list[str]) -> str:
         return ""
     combined = "\n\n".join(m.strip() for m in memories if m.strip())
     return format_context_block(combined)
+
+def append_to_context(block: str, new_memory: str) -> str:
+    """
+    Append a new memory string to an existing context block.
+    Returns the updated block.
+    """
+    if not new_memory.strip():
+        return block
+    
+    existing = extract_context(block)
+    if existing:
+        combined = f"{existing}\n\n{new_memory.strip()}"
+    else:
+        combined = new_memory.strip()
+    
+    return format_context_block(combined)
