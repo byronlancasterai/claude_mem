@@ -2,11 +2,17 @@ import sys
 import json
 import os
 
-sys.path.insert(0, '.')
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+# Add src directory to path so storage.py can be imported
+src_dir = os.path.dirname(__file__)
+sys.path.insert(0, src_dir)
+
+from storage import MemoryStore
+
+# Add parent directory to path so context_block.py can be imported
+parent_dir = os.path.dirname(src_dir)
+sys.path.insert(0, parent_dir)
 
 from context_block import format_context_block, extract_context
-from storage import MemoryStore
 
 
 def handle_request(request: dict) -> dict:
