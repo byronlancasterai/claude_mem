@@ -14,3 +14,13 @@ def extract_context(block: str) -> str:
         return ""
     content = block[len("<memory>"):-len("</memory>")].strip()
     return content
+
+def summarise_memories(memories: list[str]) -> str:
+    """
+    Combine a list of memory strings into a single context block.
+    Each memory is separated by a blank line.
+    """
+    if not memories:
+        return ""
+    combined = "\n\n".join(m.strip() for m in memories if m.strip())
+    return format_context_block(combined)
